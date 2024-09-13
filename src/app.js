@@ -8,8 +8,8 @@ app.use(cors()); // Enable CORS
 app.use(express.json());
 app.use('/api', routes);
 
-app.get('/test', (req, res) => {
-	res.send('Hello from test');
+app.get('/', (req, res) => {
+	res.send('Hello from mssUser');
 });
 
 export default app;
