@@ -14,8 +14,8 @@ routes.post("/user", async (req, res) => {
   const response = await createUserPresenter(event, repo);
   res.status(response.statusCode).json(response.body);
 });
-routes.get("/user/:email", async (req, res) => {
-  const event = new HttpRequest({ email: req.params.email });
+routes.get("/user/:id", async (req, res) => {
+  const event = new HttpRequest({ userId: req.params.id });
   const response = await getUserPresenter(event, repo);
   res.status(response.statusCode).json(response.body);
 });
