@@ -18,19 +18,19 @@ export class GetUserController {
 
   async call(request) {
     try {
-      if (request.data.userId === undefined) {
-        throw new MissingParameters("userId");
+      if (request.data.email === undefined) {
+        throw new MissingParameters("email");
       }
 
-      if (typeof request.data.userId !== "string") {
+      if (typeof request.data.email !== "string") {
         throw new WrongTypeParameter(
-          "userId",
+          "email",
           "string",
-          typeof request.data.userId
+          typeof request.data.email
         );
       }
 
-      const user = await this.usecase.call(request.data.userId);
+      const user = await this.usecase.call(request.data.email);
 
       const viewmodel = {
         user: user.toJSON(),
