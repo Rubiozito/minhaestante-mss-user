@@ -7,30 +7,30 @@ const repo = new UserRepositoryMock();
 
 describe("Get User Usecase Tests", () => {
   test("Test getUser Usecase", async () => {
-    const id = "93bc6ada-c0d1-7054-66ab-e17414c48ae3";
+    const email = "nen@pukaon.dj";
     const usecase = new GetUserUsecase(repo);
 
-    const user = await usecase.call(id);
+    const user = await usecase.call(email);
 
     expect(user).toBeInstanceOf(User);
-    expect(user.name).toEqual("Mildred McGee");
+    expect(user.name).toEqual("Beulah Watkins");
   });
 
   test("Test getUser No Items Found", async () => {
-    const id = "93bc6ada-c0d1-7054-66ab-e17414c48ae4";
+    const id = "waik@riwusic.ca";
     const usecase = new GetUserUsecase(repo);
 
     await expect(usecase.call(id)).rejects.toThrowError(
-      "No items found for userId"
+      "No items found for email"
     );
   });
 
-  test("Test getUser invalid userId", async () => {
-    const id = "12";
+  test("Test getUser invalid emial", async () => {
+    const email = "12";
     const usecase = new GetUserUsecase(repo);
 
-    await expect(usecase.call(id)).rejects.toThrowError(
-      "Field userId is not valid"
+    await expect(usecase.call(email)).rejects.toThrowError(
+      "Field email is not valid"
     );
   });
 });
