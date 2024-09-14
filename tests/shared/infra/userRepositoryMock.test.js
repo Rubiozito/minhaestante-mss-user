@@ -24,7 +24,7 @@ describe("Test user repository", () => {
   });
 
   test("Test getUser", async () => {
-    const id = "nen@pukaon.dj";
+    const id = "d5135e3e-646a-55e7-a38d-9724159b7f9f";
 
     const user = await repo.getUser(id);
 

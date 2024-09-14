@@ -11,7 +11,7 @@ describe("Tests for GetUser controller", () => {
     const controller = new GetUserController(usecase);
 
     const request = new HttpRequest({
-      email: "nen@pukaon.dj",
+      userId: "d5135e3e-646a-55e7-a38d-9724159b7f9f",
     });
 
     const response = await controller.call(request);
@@ -34,23 +34,23 @@ describe("Tests for GetUser controller", () => {
     const response = await controller.call(request);
 
     expect(response?.statusCode).toEqual(400);
-    expect(response?.body).toEqual("Field email is missing");
+    expect(response?.body).toEqual("Field userId is missing");
   });
 
-  test("Test getUser Controller email wrongType", async () => {
+  test("Test getUser COntroller userId wrongType", async () => {
     const repo = new UserRepositoryMock();
     const usecase = new GetUserUsecase(repo);
     const controller = new GetUserController(usecase);
 
     const request = new HttpRequest({
-      email: 25,
+      userId: 25,
     });
 
     const response = await controller.call(request);
 
     expect(response?.statusCode).toEqual(400);
     expect(response?.body).toEqual(
-      `Field email isn't in the right type.
+      `Field userId isn't in the right type.
  Received: number.
  Expected: string`
     );

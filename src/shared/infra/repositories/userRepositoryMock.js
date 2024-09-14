@@ -43,8 +43,8 @@ export class UserRepositoryMock {
     return user;
   }
 
-  async getUser(email) {
-    const user = this.users.find((user) => user.email === email);
+  async getUser(id) {
+    const user = this.users.find((user) => user.userId === id);
     return user || null;
   }
 

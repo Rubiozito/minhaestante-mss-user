@@ -7,14 +7,14 @@ export class GetUserUsecase {
     this.repo = repo;
   }
 
-  async call(email) {
-    if (!User.validateEmail(email)) {
-      throw new EntityError("email");
+  async call(id) {
+    if (!User.validateUserId(id)) {
+      throw new EntityError("userId");
     }
 
-    const user = await this.repo.getUser(email);
+    const user = await this.repo.getUser(id);
     if (user === null) {
-      throw new NoItemsFound("email");
+      throw new NoItemsFound("userId");
     }
 
     return user;

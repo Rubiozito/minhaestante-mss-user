@@ -7,7 +7,7 @@ import { User } from "../../../src/shared/domain/entities/user.js";
 describe("Create User Presenter Tests", () => {
   test("Test Create User Presenter", async () => {
     const example = {
-      email: "nen@pukaon.dj",
+      userId: "d5135e3e-646a-55e7-a38d-9724159b7f9f",
     };
     const repo = new UserRepositoryMock();
     const event = new HttpRequest(example);
